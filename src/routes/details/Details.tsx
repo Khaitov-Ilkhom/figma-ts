@@ -1,5 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+import Navbar from "../../components/navbar/Navbar.tsx";
+import Footer from "../../components/footer/Footer.tsx";
 
 type ProductT = {
   id: number,
@@ -35,9 +37,32 @@ type StateT = {
 const Details = () => {
   const {id} = useParams()
 
-  const [state, setState]: StateT = useState({
+  const [state, setState] = useState<StateT>({
     loading: true,
-    products: {},
+    products: {
+      id: 0,
+      title: "",
+      description: "",
+      category: "",
+      price: 0,
+      discountPercentage: 0,
+      rating: 0,
+      stock: 0,
+      tags: [],
+      brand: "",
+      sku: "",
+      weight: 0,
+      dimensions: {},
+      warrantyInformation: "",
+      shippingInformation: "",
+      availabilityStatus: "",
+      reviews: [],
+      returnPolicy: "",
+      minimumOrderQuantity: 0,
+      meta: {},
+      images: [],
+      thumbnail: ""
+    },
     error: null,
   });
 
@@ -63,9 +88,10 @@ const Details = () => {
   }, [])
 
   return (
-      <div className="max-w-[1440px] h-screen flex justify-center items-center">
+      <div className="max-w-[1440px] flex justify-center items-center flex-col">
+        <Navbar/>
         <div
-            className="max-w-[1200px] mx-auto p-4 bg-white rounded-lg shadow-lg flex justify-center items-center gap-6">
+            className="max-w-[1200px] my-[60px] mx-auto p-4 bg-white rounded-lg shadow-lg flex justify-center items-center gap-6">
           <div className="">
             <img src={state.products.thumbnail} alt={state.products.title}
                  className="w-[500px] bg-black object-cover rounded-lg"/>
@@ -88,8 +114,6 @@ const Details = () => {
               </div>
 
               <div className="text-sm mb-4">
-                <span
-                    className={`font-semibold ${state.products.stock > 0 ? "text-green-600" : "text-red-500"}`}></span>
                 <p className="text-gray-500">Only {state.products.stock} left in stock</p>
               </div>
 
@@ -105,6 +129,7 @@ const Details = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
   )
 }
