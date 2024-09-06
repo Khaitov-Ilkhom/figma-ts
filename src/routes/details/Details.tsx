@@ -5,27 +5,19 @@ import Footer from "../../components/footer/Footer.tsx";
 
 type ProductT = {
   id: number,
-  title: string,
-  description: string,
-  category: string,
-  price: number,
-  discountPercentage: number,
-  rating: number,
-  stock: number,
-  tags: [],
-  brand: string,
-  sku: string,
-  weight: number,
-  dimensions: {},
-  warrantyInformation: string,
-  shippingInformation: string,
-  availabilityStatus: string,
-  reviews: [],
-  returnPolicy: string,
-  minimumOrderQuantity: number,
-  meta: {},
-  images: [],
-  thumbnail: string
+  title: string, //
+  description: string, //
+  price: number, //
+  discountPercentage: number, //
+  rating: number, //
+  stock: number, //
+  brand: string, //
+  weight: number, //
+  warrantyInformation: string, //
+  shippingInformation: string, //
+  returnPolicy: string, //
+  minimumOrderQuantity: number, //
+  thumbnail: string //
 }
 
 type StateT = {
@@ -43,24 +35,16 @@ const Details = () => {
       id: 0,
       title: "",
       description: "",
-      category: "",
       price: 0,
       discountPercentage: 0,
       rating: 0,
       stock: 0,
-      tags: [],
       brand: "",
-      sku: "",
       weight: 0,
-      dimensions: {},
       warrantyInformation: "",
       shippingInformation: "",
-      availabilityStatus: "",
-      reviews: [],
       returnPolicy: "",
       minimumOrderQuantity: 0,
-      meta: {},
-      images: [],
       thumbnail: ""
     },
     error: null,
@@ -85,7 +69,7 @@ const Details = () => {
     }
 
     fetchData();
-  }, [])
+  }, [id])
 
   return (
       <div className="max-w-[1440px] flex justify-center items-center flex-col">
