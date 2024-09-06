@@ -1,6 +1,5 @@
-import React, {FC} from "react";
+import FC from "react";
 import {useEffect, useState} from "react";
-import ProductCard from "../product-card/ProductCard.tsx"
 import {useNavigate} from "react-router-dom";
 
 type ProductT = {
